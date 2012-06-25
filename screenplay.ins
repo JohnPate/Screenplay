@@ -1,0 +1,78 @@
+% $Id: screenplay.ins,v 1.4 2006/10/06 21:14:18 johnny Exp $
+% screenplay.ins -- docstrip driver for the screenplay LaTeX2e class
+%
+%	Please see the copyright notice in \preamble below.
+%
+% This file, when run through TeX or LaTeX, will use
+% screenplay.dtx to generate a fast loadable file screenplay.cls
+% a LaTeX2e document class file for formatting Draft Screenplays.
+%
+% useage:
+%
+% $ latex screenplay.ins
+%
+\input docstrip
+\keepsilent
+
+\preamble
++=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+
+Authored by and Copyright (C)2006 by 
+	John Pate <johnny@dvc.org.uk>
+		http://dvc.org.uk
+Latest version is available as:
+	http://dvc.org.uk/sacrific.txt/screenplay.zip
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation; either version 2 of
+the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public
+License along with this program; if not, write to the Free
+Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston,
+MA 02110-1301 USA
+
+GPL v2 text also available as: 
+	http://dvc.org.uk/gplv2.txt 
+
++=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+\endpreamble
+
+\postamble
+
+Hail Eris!  All Hail Discordia!
+\endpostamble
+
+\askforoverwritefalse
+
+\generate{\file{screenplay.cls}{\from{screenplay.dtx}{class}}
+	  \file{hardmarg.sty}{\from{screenplay.dtx}{hard}}
+	  \file{test.tex}{\from{screenplay.dtx}{rider}}
+	  \file{example.tex}{\from{screenplay.dtx}{example}}
+	  }
+
+\Msg{}
+\Msg{***********************************************************************}
+\Msg{*}
+\Msg{*  screenplay.cls is a LaTeX2e class file for Draft Screenplays.}
+\Msg{*}
+\Msg{*  screenplay.cls is stripped of comments (documentation) and must}
+\Msg{*  be placed where LaTeX can find it before it may be used.}
+\Msg{*}
+\Msg{*  hardmarg.sty is an optional package to redefine margins.}
+\Msg{*}
+\Msg{*  example.tex shows markup and explains some features of the class.}
+\Msg{*}
+\Msg{*  test.tex reproduces part of the Academy model document to}
+\Msg{*  demonstrate the veracity of screenplay class.}
+\Msg{*}
+\Msg{***********************************************************************}
+\Msg{}
+
+\endbatchfile

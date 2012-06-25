@@ -1,0 +1,34 @@
+LaTeX2e class to provide formatting for Draft Screenplays as
+recommended by the Academy of Motion Picture Arts and Sciences.
+
+Potential users need to read the information from the Academy, a
+few example scripts, and draw their own conclusions.  I believe
+`screenplay.cls' will produce a fair copy for the Nicholl
+Fellowships Competition - if you do your part.
+
+screenplay.zip should contain...
+
+* README	 - this file 
+* screenplay.dtx - the source file 
+* screenplay.ins - driver file
+* screenplay.pdf - documentation - read it
+* test.pdf	 - format test output
+* COPYING	 - GNU General Public License
+
+If not, get the latest version via...
+	http://dvc.org.uk/sacrific.txt/screenplay.zip
+
+Enjoy.
+
+Academy:
+	http://www.oscars.org/awards/nicholl/resources.html
+
+See also...
+
+ScriptTeX:
+	http://www.aidtopia.com/software/scripttex/index.html
+
+-- 
+John Pate <johnny@dvc.org.uk>
+http://dvc.org.uk/
+2012-06-25

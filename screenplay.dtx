@@ -1,0 +1,1487 @@
+% \iffalse
+% +=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+% screenplay.dtx
+% Latest version is available as:
+%	http://dvc.org.uk/sacrific.txt/screenplay.zip
+%
+% Authored by and Copyright (C)2006 by
+%        John Pate <johnny@dvc.org.uk>
+%                http://dvc.org.uk
+%
+% This program is free software; you can redistribute it and/or modify it
+% under the terms of the GNU General Public License as published by the
+% Free Software Foundation; either version 2 of the License, or (at your
+% option) any later version.
+% 
+% This program is distributed in the hope that it will be useful, but
+% WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+% or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+% for more details.
+% 
+% You should have received a copy of the GNU General Public License along
+% with this program; if not, write to the Free Software Foundation, Inc.,
+% 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
+% 
+% GPL v2 text also available as: 
+% 	http://dvc.org.uk/gplv2.txt 
+% +=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+% \fi
+%
+% \iffalse
+%<*dtx>
+\ProvidesFile{screenplay.dtx}
+\NeedsTeXFormat{LaTeX2e}[2003/12/01]
+%</dtx>
+%<driver>\ProvidesFile{screenplay.drv}
+% \fi
+%\ProvidesFile{screenplay}[2006/11/15 v1.538
+%    LaTeX2e Draft Screenplay document class
+%    (C)2006 John Pate
+%    released under the GNU General Public License]
+% \iffalse
+%<*driver>
+\documentclass{article}
+\usepackage{doc}
+\usepackage[dvips,letterpaper,pdfauthor=John\ Pate,
+pdftitle=A\ LaTeX2e\ class\ for\ Draft\ Screenplays,
+pdfsubject=LaTeX2e\ class\ documentation\ and\ source\ (C)2006\ John\ Pate]
+{hyperref}
+\RecordChanges
+\CodelineIndex
+\begin{document}
+	\DocInput{screenplay.dtx}
+\end{document}
+%</driver>
+% \fi
+%
+% \CheckSum{356}
+% \changes{1.0.0}{2006 Sep 23}{first \texttt{screenplay.dtx, 2006/09/23, v1.457}}
+% \changes{1.0.1}{2006 Sep 24}{minor code changes, revision to documentation,
+% v1.461}
+% \changes{1.0.2}{2006 Sep 26}{minor code changes, revision to documentation,
+% added \texttt{test} file, \texttt{example} file, to \texttt{.dtx},
+% amended \texttt{.ins}, v1.465}
+% \changes{1.0.3}{2006 Sep 27}{minor code changes, revision to documentation,
+% added change history, v1.487}
+% \changes{1.0.4}{2006 Sep 28}{enabled hyperlinks in documentation, v1.491}
+% \changes{1.0.5}{2006 Sep 29}{minor code changes, revision to documentation,
+% v1.494}
+% \changes{1.0.6}{2006 Sep 30}{fixed typos, v1.496}
+% \changes{1.0.7}{2006 Oct 01}{revision to documentation, v1.499}
+%
+% \MakeShortVerb{\|}
+%
+% \GetFileInfo{screenplay}
+% \title{\bfseries A \LaTeXe\ class for Draft Screenplays}
+% \author{by\\John Pate}
+% \date{This paper describes class \texttt{\filename}\\
+% version \fileversion, released \filedate}
+% \maketitle
+%
+% \section{Introduction}
+%
+% Every year \textit{The Academy of Motion Picture Arts
+% and Sciences} runs a competition for screenplay writers,
+% the \textit{Nicholl Fellowships in Screenwriting}.
+% Full-length feature film screenplays are submitted (for
+% a fee).  You can win money but, more importantly, placing in
+% the competition will make agents take notice.  
+% \textit{The Academy} recommends a particular format which this
+% \texttt{class} file attempts to duplicate, using a 
+% \texttt{.pdf} available from \textit{The Academy} website as the
+% model.  This format has various functions, amongst which is a
+% gate-keeping function to show you have at least a first idea.
+% It also gives readers a better chance of assessing how long,
+% in filmic terms, your screenplay would be.  Formatted along
+% the lines recommended, you should aim to have your screenplay
+% in the region of 120 pages long.  Although they say A4
+% paper is acceptable, it is widely held that you severely
+% handicap yourself if you don't use American 8.5" by 11"
+% Letter size paper.  I have a ream on my lap as I type: 20
+% pound, 106 bright, acid free.  My sister brought it from
+% America for me---it's very expensive to buy outside the US
+% and not easy to find. One might imagine it's at the
+% photocopy stage that dealing with A4 in America becomes
+% a nuisance---one more reason to put your magnum opus
+% to the bottom of the pile.
+%
+% Of course, if you didn't know this already you likely
+% need to do some serious reading and research \emph{before}
+% you start writing.  I guess trying to understand what's
+% going on here is a start.
+%
+% The format specifications are pretty straightforward.
+% You'll have to believe me when I say it wasn't quite so
+% straightforward for me to start from a minimal understanding
+% of \TeX\ and \LaTeXe\ to a usable \texttt{.dtx} file.
+%
+% This is an attempt to turn \TeX\ into a typewriter emulator.
+% A crazy idea---which is why it appealed to me, obviously.
+% Fortunately I'm easily entertained.
+%
+% I hope \texttt{screenplay.dtx} proves of use (and
+% instruction) to others as it has to me.
+%
+% Anyhoo, on with the show\dots
+% \pagebreak
+% \section{Getting started}
+%
+% You should have: 
+%   \begin{itemize}
+%       \item\texttt{README}---plain text file 
+%       \item\texttt{screenplay.dtx}---the source file 
+%       \item\texttt{screenplay.ins}---driver file
+%       \item\texttt{screenplay.pdf}---the file I assume you're reading right now
+%       \item\texttt{test.pdf}---format test \texttt{.pdf} result
+%       \item\texttt{COPYING}---GNU General Public License
+%   \end{itemize}
+% 
+% If not, get \texttt{screenplay.zip} via, \\
+% \href{http://dvc.org.uk/sacrific.txt/screenplay.zip}%
+% {\texttt{http://dvc.org.uk/sacrific.txt/screenplay.zip}}
+% 
+% Use the command, \\
+% \texttt{> latex screenplay.ins}  \\
+% to generate from \texttt{screenplay.dtx}\dots
+%   \begin{itemize}
+%       \item\texttt{screenplay.cls}---class file
+%       \item\texttt{hardmarg.sty}---optional style package 
+%       \item\texttt{example.tex}---example (very) mini-screenplay
+%       \item\texttt{test.tex}---format test source file
+%   \end{itemize}
+%
+% Once you've unpacked the bundle and generated the \texttt{class} 
+% file do, \\
+% \texttt{> latex test} \\
+% to generate the \texttt{test.dvi} you can compare with the
+% \texttt{test.pdf}.
+%
+% Make sure everything in the printing chain can deal properly
+% with 8.5ins by 11ins Letter paper.  Print out your
+% version of \texttt{test} and the provided \texttt{test.pdf}
+% (on Letter paper of course!) and compare them.  The two
+% printouts should be dimensionally identical. The left margin
+% should measure as  \emph{exactly} 1.5ins.  If not you have
+% an old version of \texttt{dvips} and/or your printer driver
+% is configured incorrectly and you'll need to fix things before
+% you proceed further.
+%
+% \section{Some example markup}
+%
+% Although \texttt{screenplay.cls} builds on the standard \TeX\ document
+% class \texttt{article}, it is not intended you pass it any options
+% (except for the release date specification, see below). 
+% The formatting required is minimalist. \texttt{screenplay.cls} will
+% issue an error message if you use any options.
+%
+% |\documentclass{screenplay}[2006/11/15]| \\
+% is your first command, you can give the optional date argument in
+% case of any earlier copies of \texttt{screenplay.cls} lying around.
+%
+% You are now in the \textit{document preamble} where you should
+% initialise the values of some commands.
+%
+% You must define the title of the screenplay\ldots\\
+% |\title{The Title of Your Opus}| \\
+% \ldots it will be uppercased automagically so don't fuss.
+% If it's for the \textit{Nicholl Competition} you're done.
+% However, you may as well also initialise\ldots \\
+% |\author{Your Name}| \\
+% \ldots capitalised as in ordinary writing, it's not munged
+% in the typesetting, and\ldots\\
+% |\address{99 Any Street \\| \\
+% |Any Town \\ Postcode / Zip \\| \\
+% |Phone \\| \\
+% |email@whereami }| \\
+% \ldots which you will need for a ``proper'' title page.
+%
+% The preamble is closed, of course, by\ldots\\ 
+% |\begin{document}| 
+%
+% The first typesetting command, in the body of the document, should
+% be one to build the title page.
+% For the \textit{Nicholl Competition} this is |\nicholl|,
+% \emph{alternatively} for the style used when submitting to
+% an Agent, etc.\ use |\coverpage| (which uses your address
+% and name from the preamble).
+%
+% The first thing you need to see in your screenplay is 
+% FADE~IN: left justified with a blank line underneath.
+% Screenplays always start this way, because they do.  You deploy
+% the |\fadein| command for this.
+%
+% Next would typically be a slugline, \\
+% |\intslug[day]{Johnny's House}| \\
+% which would produce\ldots \\
+% INT.~JOHNNY'S HOUSE \quad DAY 
+%
+% I made the time of day optional because my screenplay had
+% stuff happening in space where there is no time of
+% day.  You will likely \emph{always} use either \textit{day}
+% or \textit{night}.  (Refer to \textit{The Academy's} information
+% on formatting.)  Likewise there's an |\extslug[]{}| for EXT.
+%
+% After a slugline you would typically have some description.  This
+% is simply ordinary text with paragraph breaks as per usual.
+%
+% When you get to dialogue, you have the |dialogue environment|.
+%
+% |\begin{dialogue}{Johnny}| |After| |some| |description| |you|\\
+% |would| |typically| |have|\quad  |some| |dialogue.| |\end{dialogue}|
+% 
+% Directions (short) can be put inside dialogue text either as an optional
+% argument to the dialogue environment, |\begin{dialogue}[shouting]{Johnny}| 
+% which will result in parenthesized text below the dialogue name, or
+% the |\paren{}| command can be used to put parentheticals into the
+% blocks of dialogue text.
+% 
+% Do not put any blank lines in dialogue text.
+%
+% So you wander on with your screenplay requiring little in the
+% way of \LaTeXe's powers until you reach the end of the
+% final scene.  Personally I use \texttt{Elvis} with a selection
+% of macros in my \texttt{.exrc} to save me having to type the
+% commands I've invented.
+%
+% The  command at the end of the final scene is always
+% |\fadeout| to produce the words FADE~OUT: flushright. 
+%
+% Then it's simply a case of |\theend| and |\end{document}|.
+%
+% \changes{1.2.7}{2006 Nov 15}{revision to documentation}
+% The only tricky part of the formatting is deciding where to
+% put any \emph{pagebreaks} that are required to help \TeX\ out
+% with formatting.
+%
+% \textbf{Do not put in pagebreaks until you have really, really,
+% really finished editing.}
+%
+% The bottom margin should be between a half and one and a half inches.
+% \texttt{screenplay} will format pages avoiding breaks in blocks of
+% dialogue or titleover passages, will not widow sluglines or ``TITLE
+% OVER'' headers.
+%
+% Putting in manual pagebreaks will likely involve using the |\dialbreak| 
+% command, though for description text |\pagebreak| is all that
+% is required. 
+%
+% The |\dialbreak| command needs to know the character name and any
+% optional directions as required.
+%
+% If you've used the |\titleover environment| you may
+% need the |\titbreak| command (more tea, vicar?).  However, mostly
+% for TITLE OVER: you'll be doing a date to accommodate flash\-backs
+% or flash\-forwards, I expect, so use the |\centretitle| command
+% as in\\
+% |\centretitle{December 21, 2012}|.\\ 
+% Yes, that's the English (or for that matter French and Canadian)
+% ``centre'' not ``center'' in a stunning break from tradition.
+%
+% For further enlightenment, you should scrutinise the markup of
+% \texttt{example.tex} and peruse \textbf{The Coding}
+% section of this document where other useful commands may
+% be found.
+%
+% Here are lists of the \texttt{screenplay} commands you should
+% familiarise yourself with. 
+%
+% For the title page\ldots
+%   \begin{itemize}
+%       \item |\title{}| 
+%       \item |\author{}|
+%       \item |\realauthor{}|
+%       \item |\address{}|
+%       \item |\agent{}|
+%       \item |\coverpage|
+%       \item |\nicholl|
+%   \end{itemize}
+%
+% In your screenplay text\ldots
+%   \begin{itemize}
+%       \item |\fadein|
+%       \item |\intslug[]{}|
+%       \item |\extslug[]{}|
+%       \item |\intextslug[]{}|
+%       \item |\extintslug[]{}|
+%       \item |\begin{dialogue}[]{}| \ldots\ |\end{dialogue}|
+%       \item |\paren{}| (for use inside dialogue environment);
+%       \item |\dialbreak[]{}| for pagebreak in dialogue environment;
+%       \item |\begin{titleover}| \ldots\ |\end{titleover}|
+%       \item |\titbreak| for pagebreak in titleover environment;
+%       \item |\centretitle{}| 
+%       \item |\intercut| gives ``INTERCUT~WITH:'' flushright;
+%       \item \verb*|\pov\ | gives ``P.O.V.'' as a ``word'' (n.b.\
+% the \verb*| | symbol denotes a space);
+%       \item \verb*|\revert\ | gives ``REVERSE~P.O.V.'' as a ``word'';
+%       \item |\fadeout| 
+%       \item |\theend|
+%   \end{itemize}
+% (|\fadeout| and |\fadein| should not be confused with ``FADE~TO:''
+% which is, IMHO, unnecessary in a Draft Screenplay.)
+% 
+% You can see a completed screenplay marked-up via \LaTeXe\ and
+% typeset with the latest revision of \texttt{screenplay.cls}
+% at \href{http://dvc.org.uk/sacrific.txt/}%
+% {\texttt{http://dvc.org.uk/sacrific.txt/}}. 
+% There is also, at time of writing, a ``work-in-progress''
+% uncompleted screenplay that has not had manual pagebreaks inserted.
+%
+% \section{Hard Margins package}
+% \changes{1.0.9}{2006 Oct 06}{added \texttt{hardmarg.sty}, v1.502}
+% \changes{1.2.6}{2006 Nov 10}{revision to documentation, v1.533}
+%
+% Here we're emulating a typewriter.  On a typewriter, the
+% left margin is a hard stop, whereas the right margin was
+% signified by a bell warning you to to hit the carriage return
+% (those of us who typed in the stone age well remember that
+% ``ding'').  Even the best typist (let alone me) would hit the
+% margin release and run past the right margins by a character
+% or two once in a while, sometimes deliberately.  Hence the
+% ``fudge factors'' interpolated by me, which in days of yore
+% would perhaps have been referred to as the \textit{gutter}.
+% 
+% The provided \texttt{hardmarg.sty} shows you what happens
+% with the \textit{fudge factors} eliminated.  Place the command 
+% |usepackage{hardmarg}| in the document preamble
+% (i.e.\ between |\documentclass{|\ldots|}| and |\begin{document}|) 
+% and judge for yourself.  Personally I'll stick with my 
+% \textit{fudge}.  All the brain-work makes me crave carbs anyway.
+% But if you want then use it to fix your screenplay to tighter
+% margins, or perhaps compose an amended version to give your
+% interpretation of ``the standard.''
+% 
+% \section{User customisation}
+%
+% \emph{\textbf{Don't!}}  It really is a case of KISS for Draft
+% Screenplay formatting.  The margins are already ``relaxed,''
+% unless you use \texttt{hardmarg.sty}. There are a few things
+% you might get away with though\ldots
+%
+% You may want to change how the time of day is spaced from the
+% rest of the slugline.  You can do this without editing the
+% class file by redefining the |\slugspace| command 
+% e.g.\ |\renewcommand*{\slugspace}{ - }|
+% which will change the default 3em space to |em hyphen em| spacing.
+% Likewise you could |\renewcommand*{\pov}{POV}| to lose the dots.
+% If for some strange reason you don't like \textit{The Academy's} use
+% of uppercase for (MORE) and (CONT'D) you can |\renewcommand*| the
+% |\more| and |\contd| macros.
+%
+% Should you not want page number~1 to appear on the first page
+% of the body of the screenplay put the |\thispagestyle{empty}| command
+% in your document source file immediately \emph{after} the command
+% to build the title page.
+%
+% Likely, in the usual \LaTeXe\ fashion, you should develop your own
+% style package  depending on what conventions you want to use.
+% If you feel you must, the lengths/widths and texts used are defined
+% as macros you can redefine in your own style packages without having
+% to amend the |class| file---refer to \textbf{The Coding}.
+%
+% \section{Specs from \textit{The Academy}}
+%
+% Be sure to read, carefully, and inwardly digest and re-read, \\
+% \href{http://www.oscars.org/awards/nicholl/resources.html}%
+% {\texttt{http://www.oscars.org/awards/nicholl/resources.html}} \\
+% and, \\
+% \href{http://www.oscars.org/awards/nicholl/scriptsample.pdf}%
+% {\texttt{http://www.oscars.org/awards/nicholl/scriptsample.pdf}}, \\
+% (the model document).
+%
+%   \begin{itemize}
+% \item 20lb Letter paper (8.5"x11.0") \\*
+% Courier 12pt, 10 pitch 
+% 
+% \item\textbf{Page} \\*
+% Top margin:	1.0" \\*
+% Bottom margin: 0.5"-1.5" \\*
+% Left margin:	1.5" \\*
+% Right margin:	1.0" 
+% 
+% \item\textbf{Dialogue} \\*
+% tab NAME to:	4.2" \\*
+% Left margin:	3.0" \\*
+% Right margin:	2.5" \\*
+%   \textsl{Parenthetical} \\*
+% Left margin:	3.7" \\*
+% Right margin:	3.3" 
+% 
+% \item\textbf{Numbering} \\*
+% top right, Arabic \\*
+% Top margin:	0.5" \\*
+% Right margin:	0.75" 
+%   \end{itemize}
+% 
+% INT/EXT. SLUG LINE DESCRIPTION \quad  DAY/NIGHT \nopagebreak \\
+%	(with some kind of extra spacing before time of day)
+%
+% \StopEventually{\PrintIndex\PrintChanges}
+%
+% \section{The Coding}
+% \changes{1.0.8}{2006 Oct 02}{minor format fix, v1.500}
+% \changes{1.1.0}{2006 Oct 08}{minor code changes, v1.503}
+% \changes{1.1.1}{2006 Oct 08}{minor code changes, v1.504}
+% \changes{1.1.5}{2006 Oct 19}{minor code changes, revision to
+% comments, v1.511}
+% \changes{1.2.0}{2006 Nov 04}{minor code, documentation, changes, v1.521}
+% \changes{1.2.3}{2006 Nov 07}{revisions to macros (code cleanups)}
+% \changes{1.2.7}{2006 Nov 15}{revisions (bugfixes) to macros, v1.535}
+%
+% \texttt{screenplay.cls v1.538} was tested with\ldots 
+% \begin{itemize}
+%	\item pdfe\TeX\ 3.141592-1.21a-2.2 (\Web2C\ 7.5.4)
+%	\item \texttt{dvips(k)} 5.95a
+%	\item \texttt{kpathsea} version 3.5.4
+%	\item \texttt{article} 2004/02/16 v1.4f
+% \end{itemize}
+%
+%\iffalse
+%<*class>
+%\fi
+% We are a \LaTeXe\ thang\ldots
+%    \begin{macrocode}
+\NeedsTeXFormat{LaTeX2e}[2003/12/01]
+%    \end{macrocode}
+% Say it like it is\ldots
+%    \begin{macrocode}
+\ProvidesClass{screenplay}[2006/11/15 v1.538
+	LaTeX2e Draft Screenplay document class
+	(C)2006 John Pate
+	released under the GNU General Public License]
+%    \end{macrocode}
+% Whinge if the user is being a bozo\ldots
+%    \begin{macrocode}
+\DeclareOption*{%
+    \PackageError{screenplay}{Unwanted option '\CurrentOption'}%
+    {There are no options available for class screenplay v1.538}}
+\ProcessOptions\relax
+%    \end{macrocode}
+% |ifthen| needed for testing for optional args\ldots 
+%    \begin{macrocode}
+\RequirePackage{ifthen}[2001/05/26]
+%    \end{macrocode}
+% Use \texttt{article} class for its base functionality,
+% \emph{must} be
+% American Letter paper \emph{not} A4, \texttt{screenplay.cls}
+% eats any papersize options and ignores them\ldots
+%    \begin{macrocode}
+\LoadClass[12pt,letterpaper,onecolumn,oneside]{article}[2004/02/16]
+%    \end{macrocode}
+% \texttt{geometry} package puts marks in to suggest to dvi interpretors
+% to do the right thang for Letter paper\ldots
+%    \begin{macrocode}
+\RequirePackage[dvips,letterpaper]{geometry}[2002/07/08]
+%    \end{macrocode}
+% \ldots and make sure your printer driver (which means
+% \textit{Ghostscript} in my case) knows Letter.
+% I say again, you \emph{must} use American 8.5"x11" Letter
+% paper---stationers in the UK may call it ``US Quarto'' if they've
+% even heard of it, see\ldots\\
+% \href{http://www.gwydir.demon.co.uk/jo/units/print.htm}%
+% {\texttt{http://www.gwydir.demon.co.uk/jo/units/print.htm}}
+%    \begin{macrocode}
+\setlength{\paperheight}{11in}
+\setlength{\paperwidth}{8.5in}
+%    \end{macrocode}
+%
+% \emph{Must} have \texttt{Courier} as font (may cause warnings about
+% font stuff, ignore)\ldots 
+%    \begin{macrocode}
+\RequirePackage{courier}[2004/09/15]
+\renewcommand*{\familydefault}{\ttdefault}
+%    \end{macrocode}
+% You should \emph{not} hyphenate or full justify for Nicholl format\ldots
+%    \begin{macrocode}
+\raggedright
+%    \end{macrocode}
+%    \begin{macro}{Page Nums}
+% Arabic top right, I'll live with where \TeX\ puts the margin\ldots
+%    \begin{macrocode}
+\pagenumbering{arabic}
+\pagestyle{myheadings}
+%    \end{macrocode}
+% (You can force the page numbers out towards the right with \\
+% |\markright{\hspace*{6.2in}}| \\
+% in the document preamble, at the cost of `|Overfull hbox|' warnings,
+% if you like.)
+%    \end{macro}
+%    \begin{macro}{CR/LF}
+% Line spacing / pitch---it looks to me the standard
+% \LaTeXe\ \texttt{courier} font is correct pitch,
+% 12pt skip is what's in \texttt{script.pdf}\ldots
+%    \begin{macrocode}
+\setlength{\baselineskip}{12pt plus 0pt minus 0pt}
+%    \end{macrocode}
+% and this |\baselinestretch| appears to emulate \texttt{script.pdf}
+% closely and, more importantly, measures up as matching the effect
+% of the |\baselineskip| value---it matches what \textit{Movie Magic
+% Screenwriter} does, for instance\dots
+%    \begin{macrocode}
+\renewcommand*{\baselinestretch}{0.8}
+%    \end{macrocode}
+% \textit{vspace} adjustment in |\minipage| and |\parbox| in dialogue
+% to correct line spacing, should likely be adjusted if
+% |\baselinestretch| is altered for some (crazy) reason\ldots
+% \changes{1.1.3}{2006 Oct 16}{minor format fix, v1.508}
+%    \begin{macrocode}
+\newcommand*{\dialfix}{\vspace{2pt}}
+%    \end{macrocode}
+% skip one line between paras\ldots
+%    \begin{macrocode}
+\setlength{\parskip}{\baselineskip}
+%    \end{macrocode}
+% no paragraph indent\ldots 
+%    \begin{macrocode}
+\setlength{\parindent}{0in}
+%    \end{macrocode}
+%    \end{macro}
+%    \begin{macro}{\slugspace} 
+% Extra inter-word spacing in sluglines\ldots 
+%    \begin{macrocode}
+\newcommand*{\slugspace}{\hspace{2.0em plus 0em minus 0em}}
+%    \end{macrocode}
+% (will result in a total of |3em| space). See also, |\placesep| and
+% |\sepintext|, below.
+%    \end{macro}
+%    \begin{macro}{Margins/tabs}
+% \changes{1.1.4}{2006 Oct 17}{minor code changes, revision to documentation, v1.509}
+% See specs, 
+% fudge factors (i.e.\ a ``gutter'') are needed to resemble
+% the ``correct'' layout---take a ruler to it and \texttt{script.pdf}.
+%
+% 0.1" represents |1 em| in \texttt{courier} 12pt 10 pitch.
+%    \begin{macro}{left margin}
+% 1.5", default 1" +
+%    \begin{macrocode}
+\setlength{\evensidemargin}{0.5in}
+\setlength{\oddsidemargin}{0.5in}
+%    \end{macrocode}
+%    \end{macro}
+%    \begin{macro}{top margin}
+% 0.5" to number, 1" to body\ldots
+%    \begin{macrocode}
+\setlength{\topmargin}{-0.5in}
+\setlength{\headsep}{0.4in}
+\setlength{\topskip}{0in}
+%    \end{macrocode}
+%    \end{macro}
+%    \begin{macro}{bottom margin}
+% 11" - (1" top margin) - (0.5" bottom) = 
+%    \begin{macrocode}
+\setlength{\textheight}{9.5in}
+%    \end{macrocode}
+% \ldots bottom can go to 1.5" for page breaking purposes.
+%    \end{macro}
+%    \begin{macro}{right margin}
+% 6" width for description text to give 1" right margin, +0.1" fudge\ldots 
+%    \begin{macrocode}
+\setlength{\textwidth}{6.0in}
+\newlength{\widthgutter}
+\setlength{\widthgutter}{0.1in}
+\addtolength{\textwidth}{\widthgutter}
+%    \end{macrocode}
+% (later on, we must adjust centring and flush right to the ``correct''
+% margin by subtracting |\widthgutter|).
+%    \end{macro}
+%
+% \textbf{Tabbing / spacing dialogues}\\
+% Width of dialogue text, 3" with 0.2" fudge\ldots
+%    \begin{macrocode}
+\newlength{\dialwidth}
+\setlength{\dialwidth}{3.0in}
+\newlength{\dialgutter}
+\setlength{\dialgutter}{0.2in}
+\addtolength{\dialwidth}{\dialgutter}
+%    \end{macrocode}
+%	3" from left edge of page (1.5" left margin + 1.5")\ldots
+%    \begin{macrocode}
+\newcommand*{\dialtab}{\hspace*{1.5in}}
+%    \end{macrocode}
+%	 \textbf{name}, tab in 4.2" (margin + |\dialtab| + |\dialnametab|)
+% from left edge of page\ldots
+%    \begin{macrocode}
+\newcommand*{\dialnametab}{\hspace*{1.2in}}
+%    \end{macrocode}
+%	parenthetical 1.5" with 0.2" fudge\ldots
+%    \begin{macrocode}
+\newlength{\parenwidth}
+\setlength{\parenwidth}{1.5in}
+\addtolength{\parenwidth}{\dialgutter}
+%    \end{macrocode}
+%	parenthetical, tab in 3.7" (margin + |\dialtab| + |\parentab|)
+% from left edge of page\ldots
+%    \begin{macrocode}
+\newcommand*{\parentab}{\hspace{0.7in}}
+%    \end{macrocode}
+%
+% AFAICS floats not involved\ldots
+%    \begin{macrocode}
+\renewcommand*{\textfraction}{1}
+\renewcommand*{\topfraction}{0}
+\renewcommand*{\bottomfraction}{0}
+%    \end{macrocode}
+%    \end{macro}
+%    \begin{macro}{Title Pages}
+% \changes{1.1.8}{2006 Nov 01}{revisions to title page build,
+% documentation, v1.517}
+% \changes{1.1.9}{2006 Nov 03}{minor revision to title page build, v1.518}
+% \changes{1.2.2}{2006 Nov 06}{minor revisions to title page code, v1.526}
+% \changes{1.2.3}{2006 Nov 07}{revisions to title page code comments, v1.530}
+% Use one of |\nicholl| or |\coverpage| to taste.
+% This should be the first typesetting command after |\begin{document}|,
+% presuming you want \texttt{screenplay} to generate a title page for you.
+%    \begin{macro}{\title}
+% |\title{The Title}| with |\\| if you feel you must.\\
+% The code is already defined in the |article| class, here I 
+% helpfully set a default title in case you can't decide\ldots
+%    \begin{macrocode}
+\title{My First Screenplay}
+%    \end{macrocode}
+%    \end{macro}
+%    \begin{macro}{\titheadskip}
+% Distance down from top of page for title\ldots
+%    \begin{macrocode}
+\newlength{\titheadskip}
+\setlength{\titheadskip}{2.25in}
+%    \end{macrocode}
+%    \end{macro}
+% \begin{macro}{\nicholl}
+% For Nicholl Competition---just the title\ldots
+%    \begin{macrocode}
+\newcommand{\nicholl}{
+	\thispagestyle{empty}
+	\vspace*{\titheadskip}
+	\begin{center}\MakeUppercase{\@title}\end{center}
+	\newpage\setcounter{page}{1}
+}
+%    \end{macrocode}
+% \end{macro}
+%    \begin{macro}{\author}
+% |\author{Author Details}| \\
+% The code is already defined in the |article| class, here
+% I helpfully define a default author in case you can't decide\ldots
+%    \begin{macrocode}
+\author{Alan Smithee}
+%    \end{macrocode}
+%    \end{macro}
+%    \begin{macro}{\realauthor}
+% |\realauthor{Your Name}| with no formatting code. \\
+% This is for when you've used a pseudonym for |\author{}|, or
+% if there are multiple authors and/or formatting code in |\author{}|.
+% It's used by |\coverpage| when typesetting the ``author's address
+% details.'' It will default to the whatever is set as |\author{}|
+% if you don't set it\ldots
+%    \begin{macrocode}
+\newcommand{\@realauthor}{\@author}
+\newcommand{\realauthor}[1]{\renewcommand{\@realauthor}{#1}}
+%    \end{macrocode}
+%    \end{macro}
+%    \begin{macro}{\address}
+% |\address{Contact Address}| (\emph{without} name) with |\\| as
+% appropriate.\\
+% Your address details for the title page\ldots
+%    \begin{macrocode}
+\newcommand{\@address}{Contact via Agency}
+\newcommand{\address}[1]{\renewcommand{\@address}{#1}}
+%    \end{macrocode}
+% \ldots see also\ldots
+%    \end{macro}
+%    \begin{macro}{\agent}
+% |\agent{Agent name and address details}| with |\\| as appropriate. \\
+% Some people like to put copyright and WGA registration
+% details on their submitted screenplays---although the received
+% wisdom is that this marks you as an amateur, you can use
+% this macro.
+%
+% I'm calling this |\agent{}| to pretend you're putting
+% your Agent's details instead of your own address---hence
+% if you don't define |\address{}| (and use |\coverpage|) you'll
+% get the boilerplate text ``Contact via Agency'' under the
+% name in the ``author's address details'' area.  What
+% you would do is omit your own contact details and only have your
+% Agent's address (you could define |\realauthor{}| and |\address{}|
+% as a non-printing character, e.g.\ |~|, to make your contact
+% details blank if you like).  Putting this the other side of
+% the page makes it immediately clear what's who.  No really,
+% there's no need to use this \emph{unless} you're with an
+% agency but it's your screenplay\dots
+%    \begin{macrocode}
+\newcommand{\@agent}{~}
+\newcommand{\agent}[1]{\renewcommand{\@agent}{#1}}
+%    \end{macrocode}
+%    \end{macro}
+%    \begin{macro}{\titskip}
+% Determines how far down below the title the extra info
+% on the title page is written.
+% You may have to adjust the |\titskip| if you put in
+% a lot of text for |\address| and/or |\agent| but if you do
+% there's probably too much---it's a rubber length\ldots
+%    \begin{macrocode}
+\newlength{\titskip}
+\setlength{\titskip}{3.75in plus 0in minus 1.5in}
+%    \end{macrocode}
+%    \end{macro}
+%    \begin{macro}{\addrwidth}
+% Size of boxes for |\agent| and |\realname|/|\address|
+% (19 characters wide at 2")\ldots
+%    \begin{macrocode}
+\newlength{\addrwidth}
+\setlength{\addrwidth}{2.0in}
+%    \end{macrocode}
+%    \end{macro}
+%    \begin{macro}{\addrseplen}
+% \changes{1.2.1}{2006 Nov 05}{minor revision to title page code, v1.523}
+% Separation between Agent and author/address details, rubber to
+% allow for possible use of |hardmarg.sty|\ldots
+%    \begin{macrocode}
+\newlength{\addrseplen}
+\setlength{\addrseplen}{2.0in plus 0in minus 0.5in}
+%    \end{macrocode}
+%    \end{macro}
+%    \begin{macro}{\coverpage}
+% Now the ability to make the the type of title page for
+% Draft Screenplays submitted to Agents\ldots 
+%    \begin{macro}{\bytext \byskip}
+% \changes{1.2.4}{2006 Nov 08}{revisions to title page code, v1.531}
+% In case you want to fiddle with this\ldots
+%    \begin{macrocode}
+\newcommand*{\bytext}{by}
+\newcommand*{\byskip}{\baselineskip}
+%    \end{macrocode}
+%    \end{macro}
+% |\coverpage| will build a title page\ldots
+%    \begin{macrocode}
+\newcommand{\coverpage}{
+	\thispagestyle{empty}
+	\vspace*{\titheadskip}
+	\begin{center}{\MakeUppercase{\@title}}\\
+		\vspace{\byskip}
+		\bytext\\
+		\vspace{\byskip}
+		\@author
+	\end{center}
+	\vspace{\titskip}
+%    \end{macrocode}
+% |\agent| (if any, otherwise |\addrwidth| space) details at left margin in
+% a |\parbox|, |\addrseplen| space then contact details for the author
+% (|\realname|, which will default to |\author| if not defined, and |\address|)
+% in a |\parbox|\ldots
+%    \begin{macrocode}
+\parbox[t]{\addrwidth}{\@agent}\hspace{\addrseplen}
+\parbox[t]{\addrwidth}{\@realauthor\\\@address} 
+%    \end{macrocode}
+% Reset page numbers\ldots
+%    \begin{macrocode}
+	\newpage\setcounter{page}{1}
+}
+%    \end{macrocode}
+%    \end{macro}
+% End title page---author details 
+%    \end{macro}
+%    \begin{macro}{\more \contd}
+% \changes{1.1.6}{2006 Oct 22}{minor code changes, revision to
+% documentation, v1.512}
+% \textbf{More and Continued.} You may want to use these
+% macros if you feel it's necessary to follow what appears to
+% be the ``older'' style where they aren't only used for
+% pagebreaks\ldots
+%    \begin{macrocode}
+\newcommand*{\more}{(MORE)}
+%    \end{macrocode}
+%    \begin{macrocode}
+\newcommand*{\contd}{(CONT'D)}
+%    \end{macrocode}
+%    \end{macro}
+% \textbf{Dialogue blocks}\ldots
+%    \begin{macro}{\paren}
+% \changes{1.2.8}{2006 Nov 15}{bugfix}
+% |\paren{hello world}| \\
+% parenthetical within dialogue environment\ldots
+% only for \emph{very short} text (directions) within
+% dialogue\ldots
+%    \begin{macrocode}
+\newcommand{\paren}[1]{%
+
+\parentab\parbox[t]{\parenwidth}{\raggedright(#1)\dialfix}\\
+}
+%    \end{macrocode}
+%    \end{macro}
+%    \begin{macro}{dialogue env}
+% |\begin{dialogue}[directions]{character name}| \ \ldots\  |\end{dialogue}|\\
+% |\begin{dialogue}{character name}| \ \dots\   |\end{dialogue}|\\
+% |\minipage| won't allow pagebreaks, see below for new manual
+% pagebreak command for this environment.  Do \emph{not} have blank lines
+% inside this environment.
+% \textbf{Name} is outside |\minipage| to mitigate `|Overfull \hbox|' 
+% warnings with long names\ldots
+%    \begin{macrocode}
+\newenvironment{dialogue}[2][]{%
+
+\dialtab\dialnametab\hbox{\MakeUppercase{#2}}\\*
+\dialtab\begin{minipage}[b]{\dialwidth}
+\dialfix
+\raggedright
+\ifthenelse{\not\equal{#1}{}}
+{
+\paren{#1}
+}{}
+}{%
+\end{minipage}
+
+}
+%    \end{macrocode}
+%    \end{macro}
+%    \begin{macro}{\dialbreak}
+% \changes{1.2.8}{2006 Nov 15}{bugfix}
+% Forcing pagebreak in dialogue,\\
+% |\dialbreak{Character}| \\
+% |\dialbreak[directions]{Character}|\\
+% (need to know character name---\LaTeXe\ scoping rules don't
+% seem to like global vars, somebody tell me otherwise)
+% \emph{Note:}
+% only do any manual pagebreaks when you absolutely positively
+% have killed every muthafucka in the room!\dots
+%    \begin{macrocode}
+\newcommand{\dialbreak}[2][]{%
+\nopagebreak
+\dialnametab\hbox{\more}%
+\end{dialogue}
+\newpage
+\ifthenelse{\not\equal{#1}{}}
+{
+\begin{dialogue}[#1]{\MakeUppercase{#2} \contd}
+}{
+\begin{dialogue}{\MakeUppercase{#2} \contd}
+}
+}
+%    \end{macrocode}
+%    \end{macro}
+% \textbf{Sluglines}\\
+% Optional arg for night/day.
+% You probably should not consider time of day optional when
+% you're writing descriptions---unless you're in a spaceship,
+% of course\ldots
+%    \begin{macro}{\placesep}
+% What punctuation/spacing comes after the likes of INT and EXT\ldots
+%    \begin{macrocode}
+\newcommand*{\placesep}{.~}
+%    \end{macrocode}
+%    \end{macro}
+%    \begin{macro}{\slug} internal command used for building 
+% the various user commands\ldots
+%    \begin{macrocode}
+\newcommand{\slug}[3][]{%
+
+\MakeUppercase{#2\placesep#3}%
+\ifthenelse{\not\equal{#1}{}}
+                {%
+\slugspace\MakeUppercase{#1}\hspace{\fill}
+                }{}
+\nopagebreak 
+
+}
+%    \end{macrocode}
+%    \end{macro}
+%    \begin{macro}{\intslug}
+% INT. SLUGLINE DESCRIPTION \quad DAY\\
+% |\intslug[time of day]{description text}|\\
+% |\intslug{description text}|
+%    \begin{macrocode}
+\newcommand*{\inttext}{INT}
+\newcommand{\intslug}[2][]{\slug[#1]{\inttext}{#2}}
+%    \end{macrocode}
+%    \end{macro}
+%    \begin{macro}{\extslug}
+% EXT. SLUGLINE DESCRIPTION \quad DAY\\
+% |\extslug[time of day]{description text}| \\
+% |\extslug{description text}|
+%    \begin{macrocode}
+\newcommand*{\exttext}{EXT}
+\newcommand{\extslug}[2][]{\slug[#1]{\exttext}{#2}}
+%    \end{macrocode}
+%    \end{macro}
+%    \begin{macro}{\sepintext}
+% Complementary to |\placesep|\ldots
+%    \begin{macrocode}
+\newcommand*{\sepintext}{./}
+%    \end{macrocode}
+%    \end{macro}
+%    \begin{macro}{\intextslug}
+% Apparently people do this\dots \\
+% INT./EXT. SLUGLINE DESCRIPTION \quad DAY\\
+% |\intextslug[time of day]{description text}| \\
+% |\intextslug{description text}|
+%    \begin{macrocode}
+\newcommand{\intextslug}[2][]{%
+\slug[#1]{\inttext\sepintext\exttext}{#2}}
+%    \end{macrocode}
+%    \end{macro}
+%    \begin{macro}{\extintslug}
+% and/or this\dots \\ 
+% EXT./INT. SLUGLINE DESCRIPTION \quad DAY\\
+% |\extintslug[time of day]{description text}| \\
+% |\extintextslug{description text}|
+%    \begin{macrocode}
+\newcommand{\extintslug}[2][]{%
+\slug[#1]{\exttext\sepintext\inttext}{#2}}
+%    \end{macrocode}
+%    \end{macro}
+%    \begin{macro}{\sccentre \scflushright}
+% Internal formatting commands for various macros\ldots \\
+% |\sccentre{}| used in macros todo centring, you should use this if rolling 
+% your own\ldots
+%    \begin{macrocode}
+\newcommand*{%
+\sccentre}[1]{\hspace*{\fill}{#1}\hspace{\fill}\hspace{\widthgutter}}
+%    \end{macrocode}
+% |\scflushright{}| used in macros todo flushright, you should use this if rolling
+% your own\ldots
+%    \begin{macrocode}
+\newcommand*{%
+\scflushright}[1]{\hspace*{\fill}{#1}\hspace{\widthgutter}}
+%    \end{macrocode}
+%    \end{macro}
+%    \begin{macro}{\punctchar}
+% What you use to punctuate things like FADE~TO and TITLE~OVER\ldots
+%    \begin{macrocode}
+\newcommand*{\punctchar}{:}
+%    \end{macrocode}
+%    \end{macro}
+% \textbf{Title Over}
+%
+%    \begin{macro}{titleover env}
+% |\begin{titleover}| \ \ldots\  |\end{titleover}| \\
+% as pseudo dialogue environment (think ``Star Wars'')
+% the optional argument is for internal use \emph{only}\ldots
+%    \begin{macrocode}
+\newcommand*{\titleovertext}{TITLE~OVER}
+\newenvironment{titleover}[1][]{%
+
+\ifthenelse{\not\equal{#1}{}}
+{%
+\titleovertext #1\punctchar
+}{%
+\titleovertext\punctchar
+}%
+\\*[\baselineskip]
+\dialtab\begin{minipage}[b]{\dialwidth}
+\raggedright
+}{%
+\end{minipage}
+
+}
+%    \end{macrocode}
+%    \end{macro}
+%
+%    \begin{macro}{\titbreak}
+% \changes{1.2.8}{2006 Nov 15}{bugfix, v1.538}
+% pagebreak for titleover environment\ldots
+%    \begin{macrocode}
+\newcommand{\titbreak}{%
+\nopagebreak
+\dialnametab\hbox{\more}%
+\end{titleover}
+\newpage
+\begin{titleover}[\contd]%
+}
+%    \end{macrocode}
+%    \end{macro}
+%    \begin{macro}{\centretitle}
+% |\centretitle| |{short text}| \\
+% titleover for short text most often a date, centred with
+% adjustment for gutter\ldots
+%    \begin{macrocode}
+\newcommand{\centretitle}[1]{%
+
+\titleovertext\punctchar\\*[\baselineskip]%
+\sccentre{#1}
+
+}
+%    \end{macrocode}
+%    \end{macro}
+% \textbf{Other macros}
+%
+%    \begin{macro}{\fadein}
+% Always the \emph{first} thing in your screenplay, for some reason\ldots
+%    \begin{macrocode}
+\newcommand*{\fadeintext}{FADE~IN}
+\newcommand{\fadein}{%
+
+\fadeintext\punctchar
+
+}
+%    \end{macrocode}
+%    \end{macro}
+%    \begin{macro}{\fadeout}
+% Always the last thing in your screenplay, for some reason,
+% flush right with adjustment for gutter\ldots
+%
+%    \begin{macrocode}
+\newcommand*{\fadeouttext}{FADE~OUT}
+\newcommand{\fadeout}{%
+
+\scflushright{\fadeouttext\punctchar}
+
+}
+%    \end{macrocode}
+%    \end{macro}
+%    \begin{macro}{\intercut}
+% flush right with adjustment for gutter\ldots
+%    \begin{macrocode}
+\newcommand*{\intercuttext}{INTERCUT~WITH}
+\newcommand{\intercut}{%
+
+\scflushright{\intercuttext\punctchar}
+
+}
+%    \end{macrocode}
+%    \end{macro}
+%    \begin{macro}{\pov \revert}
+% \changes{1.1.7}{2006 Oct 25}{minor revisions, v1.516}
+% Switch point of view\ldots
+%    \begin{macrocode}
+\newcommand*{\pov}{P.O.V.}
+%    \end{macrocode}
+% \ldots switch it back\ldots
+%    \begin{macrocode}
+\newcommand*{\revert}{REVERSE~\pov}
+%    \end{macrocode}
+%    \end{macro}
+%
+%    \begin{macro}{\theend}
+% But this is what we've all been waiting for\ldots
+% OK, so this is actually the \emph{last} thing in the screenplay\ldots
+%    \begin{macrocode}
+\newcommand*{\thirty}{THE~END}
+\newcommand{\theend}{%
+
+\sccentre{\thirty}
+
+}%THE END
+%    \end{macrocode}
+%    \end{macro}
+%\iffalse
+%</class>
+%\fi
+%\iffalse
+%<*hard>
+%\fi
+%    \begin{macro}{hardmarg.sty}
+%
+% \textbf{Hard Margins package} \\
+% Re-defines margins to exactly as stated in \texttt{script.pdf}.
+% Try it out and see if you like it.  Also shows you what
+% todo if you want to fiddle with some of the margin settings\ldots
+%
+% Issue info as to what we do\ldots
+%    \begin{macrocode}
+\ProvidesPackage{hardmarg}[2006/11/15 v1.538
+For use with class screenplay
+(C)2006 John Pate
+released under the GNU General Public License]
+%    \end{macrocode}
+% Hard 1" right margin\ldots
+%    \begin{macrocode}
+\setlength{\textwidth}{6.0in}
+%    \end{macrocode}
+% Flushright and centring use this, so eliminate it\ldots
+%    \begin{macrocode}
+\setlength{\widthgutter}{0in}
+%    \end{macrocode}
+% Set dialogue to 3" width, right margin 2.5"\dots
+%    \begin{macrocode}
+\setlength{\dialwidth}{3.0in}
+%    \end{macrocode}
+% Set parentheticals to 1.5" width, right margin 3.3"\ldots
+%    \begin{macrocode}
+\setlength{\parenwidth}{1.5in}
+%    \end{macrocode}
+%    \end{macro}
+%\iffalse
+%</hard>
+%\fi
+%
+% \section{More about paper}
+% \changes{1.1.2}{2006 Oct 12}{revision to documentation, v1.507}
+%
+% Unless you're in America, getting Letter paper will be a problem.
+% Another issue is that the recommended 20lb weight paper is
+% equivalent to 75gsm, a non-standard weight for metric papers.
+% (Well, strictly speaking the Americans have defined their measures
+% using metric standards but let's not get into that.)
+% Americans have a 24lb weight paper that's close to 80gsm.
+% I've got samples of Letter in both 20lb and 80gsm.  The same
+% screenplay, with the same card covers (240gsm plain white card)
+% measures 12mm vs 15mm in thickness.  The 80gsm stuff is
+% noticeably heavier and thicker (less flexible).
+%
+% IMHO good quality 20lb is nicer in handling and you can very much
+% tell the difference.  Old-style typing paper was usually pretty
+% thin for ``normal'' use.
+%
+% Copy Shops will cut down A3 paper to 8.5" by 11" for you but
+% whether they'll get you 75gsm weight is another matter.  One
+% told me he could ``probably'' get 75gsm paper if I really
+% wanted it.  
+%
+% Buying Letter paper mail order in the UK is very expensive and
+% I haven't seen American-style pound bond weights quoted---the
+% ``heavy'' paper I have was sourced in the UK as
+% XEROX PREMIER 216mm~x~279mm 80gsm.
+%
+% Another issue is that the paper must be three-hole punched.  Specs
+% gleaned from the Internet suggest that Letter three-hole paper is
+% a central hole (i.e.\ 140mm down from the top edge) with the other
+% two holes 108mm up, and down, from that central hole.  I'm hoping
+% to get some genuine three-hole from America to check that out,
+% meantime I got a Copy Shop to drill a ream of paper for me (and
+% some card for covers).  I'd advise that if you can't buy punched
+% paper, get a Copy Shop to drill it for you.  It produces a vastly
+% neater result than using a hole punch---and a suitable hole punch
+% for ``home use'' is going to be rather expensive in any case.
+%
+% And then there's the paper fasteners\ldots\\
+% To cut a long story short, here's what you want:
+%   \begin{itemize}
+%	\item ACCO solid brass \#5 brads, 1.25" long, part number 71505;
+%	\item ACCO \#2 brass washers, part number 71511.
+%   \end{itemize}
+% \ldots and a rubber mallet to hammer them in with.
+% The rubber mallet is easy enough to come by but 
+% you'll have to source the paper fasteners from America (it seems to
+% be mainly the screenwriting fraternity that call them ``brads''
+% rather than paper fasteners, BTW).  The brass-plated ersatz
+% versions available in the UK are clearly \emph{not} up to the job
+% by a long shot. And beware that ACCO make a version that isn't
+% solid brass and is inferior to these all-brass ones, hence the
+% necessity for part numbers.
+%
+% The washers are for the back, where the prongs are folded over;
+% you use \emph{two brads}, each with a single washer, one in the
+% top and one in the bottom hole leaving the central hole empty.
+%
+% And while I'm on about paper, 120 pages is really the absolute
+% longest you should go.  A screenplay that runs between 100 and 110
+% pages is a better bet---and that's with plenty of whitespace in the
+% passages of description.
+% 
+% \section{\LaTeX\ for the impatient}
+% \changes{1.2.5}{2006 Nov 09}{additions to documentation, v1.532}
+%
+% You will likely need to be familiar with the following standard \LaTeX\
+% foibles and constructs.
+%
+% In \TeX\ the \textsl{space} or \textsl{blank} character has special
+% properties: 
+%   \begin{itemize}
+%	\item one blank is the same as a thousand and counts as one,
+% except for \textsl{carriage returns} where two, or more, consecutive
+% carriage returns signal a paragraph break.  A single carriage
+% return is treated as a blank;
+%	\item blanks at the beginning of a line are ignored;
+%	\item blanks terminating a command name are removed (except
+% in the case of printing \textsl{command characters}, see for example
+% |\$| below);
+%	\item blanks following \textsl{full stop} (period) get extra
+% space inserted, except where the full stop follows an uppercase
+% character.  Blanks following a \textsl{colon} get extra space
+% inserted, as do those after an \textsl{exclamation mark};
+%   \end{itemize}
+% So to work with this you likely need to know:
+%   \begin{itemize}
+%       \item \verb*|\ | force single space (e.g.\ after e.g. and
+% see |\pov| and |\revert| \texttt{screenplay} commands which follow
+% convention and therefore need this to get a space after them);
+%       \item |\@| force double space after full stop
+% following an uppercase character (place it before the offending
+% full stop);
+%       \item |%| is the \textsl{comment character} (makes things invisible
+% to \TeX)---the comment character used immediately before a carriage
+% return suppresses the space \TeX\ would otherwise substitute for
+% the carriage return;
+%       \item |\\| force a linebreak;
+%       \item |\\*| force a linebreak but don't allow a pagebreak;
+%       \item |\pagebreak| (works in description text)
+%       \item |\nopagebreak| 
+%       \item |~| non-breaking space, |$\sim$| gives a $\sim$ symbol;
+%   \end{itemize}
+% You \emph{do} want \TeX\ to munge space for you, I advise you
+% \emph{against} the use of the |\frenchspacing| command
+% with \texttt{screenplay} (even if you're French).
+%
+% Special characters you might want:
+%   \begin{itemize}
+%       \item |\#| to produce a \# symbol;
+%       \item |\$| to produce a \$ symbol;
+%	\item |\%| to produce a \% symbol;
+%       \item |$\backslash$| to produce a $\backslash$ symbol;
+%       \item |\ldots| ellipsis \ldots
+%   \end{itemize}
+%
+% A \LaTeX\ installation comes with extensive
+% documentation---\emph{read  it}!
+%
+% Also check out the \textit{\TeX\ Users Group}
+% \href{http://www.tug.org/}%
+% {\texttt{http://www.tug.org}}.
+%
+% \section{Todo}
+% If anybody else uses it maybe they'll spot stuff that's
+% wrong but \textsl{Johnny} says, ``It works for me.''
+%
+% The test file \texttt{test.tex} shows \texttt{screenplay}
+% markup applied to ``FOR A FEW DAYS MORE''
+% (\href{http://www.oscars.org/nicholl/script.pdf}%
+% {\texttt{http://www.oscars.org/nicholl/script.pdf}})
+% and the \texttt{test.pdf} file was generated from that.
+%
+% A printout of the first page \texttt{script.pdf} and
+% \texttt{test.pdf} show identical pitch and the inter-line
+% spacing is pretty close.  However, I chose a |\baselinestretch|
+% value to complement the |\baselineskip| and be more typographically
+% appropriate rather than exactly match \texttt{script.pdf}
+% (i.e.\ we're emulating a typewriter).
+%
+% You can tell which is which because \texttt{test.pdf}
+% numbers the first page whilst \texttt{script.pdf} starts
+% numbering on the second page of the screenplay.  
+%
+% If I get any \emph{useful} feedback I \emph{may} alter things
+% accordingly.  In that regard Don (the webmaster) at, 
+% \href{http://www.simplyscripts.com/}%
+% {\texttt{http://www.simplyscripts.com}}
+% has judged the results as, ``Script is in some generally agreed
+% upon screenplay format or close enough,'' which is my intention
+% for this |class|.
+%
+% If anyone comes up with additional |style| package(s) suitably
+% applicable I'll add such to the |.dtx| bundle.  Having researched
+% the subject I believe it's inappropriate to use constructs like
+% CUT TO:, DISSOLVE TO:, FADE TO:, etc.\ in a Draft Screenplay, though
+% they might legitimately appear in a Shooting Script or something
+% getting close to it.  This |class| is aimed at Draft Screenplays,
+% IMHO any further elaboration of capabilities should be via
+% additional |style| packages---which I leave as an exercise for the
+% reader.
+%
+% Please ensure you have tried latest available version before
+% reporting any bugs.
+%
+% \section{Disclaimer}
+% The arcane art of writing screenplays has spawned a whole industry
+% of books and software.  \texttt{screenplay} is my modest and, more
+% importantly, \emph{free} contribution.  It is \copyright 2006
+% John Pate, released under the \textit{GNU General Public License}.
+% Your mileage may vary.  E\&OE.
+%
+% For howto contact the author see, 
+% \href{http://dvc.org.uk/johnny.html}%
+% {\texttt{http://dvc.org.uk/johnny.html}}.
+%
+% \newpage
+% \section{A note for our Sponsor}
+%
+% I don't think I'm alone when I say\ldots 
+% \bigskip
+%
+% \Huge Hail Eris!
+%
+% \bigskip
+%  All Hail Discordia!
+% \normalsize
+% \newpage
+%
+%\iffalse
+%<*rider>
+%% Test document: facsimile of title and first page
+%% of http://www.oscars.org/nicholl/script.pdf
+%% to demonstrate veracity of class screenplay
+%% see http://www.dvc.org.uk/sacrific.txt/
+%% for more information on the document class.
+%%
+\documentclass{screenplay}[2006/11/15]
+\title{For a Few Days More}
+\author{April Rider}
+\address{555 George St NNW\\
+Kaplan, ND 77777\\
+999-999-9999}
+\begin{document}
+\coverpage
+\fadein
+\intslug[day]{Driskill Hotel Seminar Room}
+JOE and APRIL burst through the doors into a clean, well-lit
+seminar room.
+\begin{dialogue}{Joe}
+Are we in time?
+\end{dialogue}
+\begin{dialogue}{April}
+How could they start without us?
+We're the main attraction.
+\end{dialogue}
+Joe catches his breath as he leans against the podium at the
+front of the room.
+\begin{dialogue}[looking about the room]{Joe}
+We are?
+\end{dialogue}
+\begin{dialogue}{April}
+Don't be a moron.  You know we've
+been invited to Austin to discuss
+script format.
+\end{dialogue}
+\begin{dialogue}{Joe}
+But why is the room empty?
+\end{dialogue} 
+April and Joe both look out across the room~-- rows of empty
+chairs and nary a person in sight.
+\begin{dialogue}{April}
+Okay, okay, don't panic.
+\end{dialogue} 
+She takes three deep breaths.  Then she looks at her watch
+and smiles.
+\begin{dialogue}[continuing]{April}
+We're an hour early.\dots  We should
+rehearse.
+\end{dialogue}
+\begin{dialogue}{Joe}
+Okay, you start.  Margins?
+\end{dialogue} 
+\begin{dialogue}{April}
+Left, 1.5 inches.  Right, 1.0
+inches.  Top, 1.0 inches to the
+body, 0.5 inches to the number.
+Bottom, 0.5 to 1.5 inches,
+depending on where the page break
+comes.
+\end{dialogue} 
+\end{document}
+%</rider>
+%\fi
+%\iffalse
+%<*example>
+\documentclass{screenplay}[2006/11/15]
+
+\title{Example .tex File}
+
+\author{John Pate}
+
+\address{the address\\
+here if you're\\
+going postal\\
+UK\\
++44~(0)131~999~9999\\
+johnny@dvc.org.uk
+}
+
+%% ... preamble finished, let's go ...
+\begin{document}
+
+%% Make a title page ...
+\coverpage
+%% ...or use \nicholl
+
+%% TeX allows quite a lot of leeway in whitespace, so I've messed this
+%% up a bit.  I find keeping the format structured helps me a lot tho.
+%% Note: but don't have blank lines *inside* the body of text in
+%% a dialogue environment.
+%% I use vi (Elvis) with macros to make a lot of typing disappear.
+%% You can, of course, define LaTeX macros to shorten the command names. 
+%% 
+%% Anyhoo, on with the show ... 
+
+%% for some reason this always happens at the start ...
+\fadein
+
+\intslug[illumination]{example sample -- screenplay.cls}
+
+In space, nobody knows what time of day it is.  Wait, there is no
+day. 
+
+So BOB, a cross-dressing Republican, and BROWN, a Christian
+fundamentalist Democrat, are talking nonsense instead.
+
+
+\begin{dialogue}{Bob}
+That means that someone
+sabotaged the unit and killed the
+President! Was it one of us?
+\end{dialogue}
+\begin{dialogue}{Brown}
+Who else is mad but us, Condi\ldots
+ \paren{beat}
+and Bliar?
+\end{dialogue}
+
+Bob buries his head in his hands.
+
+\intslug{Atlantis -- somewhere ANyway}
+
+JOHN and MARK are at adjacent consoles. FRED is with them. TOM
+is at another console slightly further away.
+
+\begin{dialogue}{John}
+The planetoid seems to have a thin crust
+covering a nickel-iron core. Could have
+been an Earth-like planet at one time.
+\end{dialogue}
+
+\begin{dialogue}{Mark}
+We're coming up on the radio source now.
+\end{dialogue}
+
+Brown walks in and goes to a console.
+
+He has a PARROT on his shoulder.
+
+The Parrot has an air of quiet insouciance.
+
+\begin{dialogue}{Fred}
+Switch the visual to main screen so we
+can get a good look.\end{dialogue}
+
+They look up at the main screen.
+
+\begin{dialogue}[to John and Mark]{Fred}
+Lock on to that.
+\dialbreak[to Tom]{Fred}
+Establish planetary orbit.
+\end{dialogue}
+
+\intextslug[day]{in or out}
+Apparently some people do this.
+
+\intercut
+\extintslug[night]{out or in}
+Or even this.
+
+\extslug[day or nite]{NO WARRANTY -- EXPRESS OR IMPLIED}
+
+\pov\ I made the slugline DAY/NIGHT optional 'cause in space no-one can
+tell the time.  You probably will need to specify.
+
+Don't put in pagebreaks by hand until you're really, really
+finished editing!
+
+It isn't the done thing to hyphenate for formatting purposes.
+\centretitle{http://dvc.org.uk/sacrific.txt/}
+
+That was a centred titleover.
+\begin{titleover}There's a titleover environment for dialogue-like layout if you're
+doing the "Star Wars" thing.\end{titleover}\extslug[All Hail Discordia!]{where to find us}
+http://dvc.org.uk/sacrific.txt/screenplay.zip
+
+Use the source, Luke.
+
+\extslug[illumination]{for definitive info on layout}
+
+http://www.oscars.org/nicholl/format.html
+
+%% and this always happens at the end ...
+\fadeout
+
+\theend
+
+\end{document}
+%</example>
+%\fi
+% \Finale
+\endinput
