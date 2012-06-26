@@ -81,7 +81,7 @@ clean: cleantex
 	-rm screenplay.ilg
 	-rm screenplay.ind
 	-rm screenplay.pdf
-	-rm screenplay.cls
+	-rm screenplay.tpt
 	-rm hardmarg.sty
 	-rm test.tex test.pdf example.tex
 
