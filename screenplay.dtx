@@ -34,7 +34,7 @@
 %</dtx>
 %<driver>\ProvidesFile{screenplay.drv}
 % \fi
-%\ProvidesFile{screenplay}[2006/11/15 v1.538
+%\ProvidesFile{screenplay}[2012/06/30 v1.6
 %    LaTeX2e Draft Screenplay document class
 %    (C)2006 John Pate
 %    released under the GNU General Public License]
@@ -54,7 +54,7 @@ pdfsubject=LaTeX2e\ class\ documentation\ and\ source\ (C)2006\ John\ Pate]
 %</driver>
 % \fi
 %
-% \CheckSum{356}
+%% \CheckSum{356}
 % \changes{1.0.0}{2006 Sep 23}{first \texttt{screenplay.dtx, 2006/09/23, v1.457}}
 % \changes{1.0.1}{2006 Sep 24}{minor code changes, revision to documentation,
 % v1.461}
@@ -68,6 +68,7 @@ pdfsubject=LaTeX2e\ class\ documentation\ and\ source\ (C)2006\ John\ Pate]
 % v1.494}
 % \changes{1.0.6}{2006 Sep 30}{fixed typos, v1.496}
 % \changes{1.0.7}{2006 Oct 01}{revision to documentation, v1.499}
+% \changes{1.2.9}{2012 Jun 30}{v1.6, moved to Github}
 %
 % \MakeShortVerb{\|}
 %
@@ -174,7 +175,7 @@ pdfsubject=LaTeX2e\ class\ documentation\ and\ source\ (C)2006\ John\ Pate]
 % The formatting required is minimalist. \texttt{screenplay.cls} will
 % issue an error message if you use any options.
 %
-% |\documentclass{screenplay}[2006/11/15]| \\
+% |\documentclass{screenplay}[2012/06/30]| \\
 % is your first command, you can give the optional date argument in
 % case of any earlier copies of \texttt{screenplay.cls} lying around.
 %
@@ -378,6 +379,7 @@ pdfsubject=LaTeX2e\ class\ documentation\ and\ source\ (C)2006\ John\ Pate]
 % as macros you can redefine in your own style packages without having
 % to amend the |class| file---refer to \textbf{The Coding}.
 %
+% \changes{1.2.9}{2012 Jun 30}{fixed URLs}
 % \section{Specs from \textit{The Academy}}
 %
 % Be sure to read, carefully, and inwardly digest and re-read, \\
@@ -444,7 +446,7 @@ pdfsubject=LaTeX2e\ class\ documentation\ and\ source\ (C)2006\ John\ Pate]
 %    \end{macrocode}
 % Say it like it is\ldots
 %    \begin{macrocode}
-\ProvidesClass{screenplay}[2006/11/15 v1.538
+\ProvidesClass{screenplay}[2012/06/30 v1.6 
 	LaTeX2e Draft Screenplay document class
 	(C)2006 John Pate
 	released under the GNU General Public License]
@@ -508,11 +510,11 @@ pdfsubject=LaTeX2e\ class\ documentation\ and\ source\ (C)2006\ John\ Pate]
 %    \begin{macro}{CR/LF}
 % Line spacing / pitch---it looks to me the standard
 % \LaTeXe\ \texttt{courier} font is correct pitch,
-% 12pt skip is what's in \texttt{script.pdf}\ldots
+% 12pt skip is what's in \texttt{scriptsample.pdf}\ldots
 %    \begin{macrocode}
 \setlength{\baselineskip}{12pt plus 0pt minus 0pt}
 %    \end{macrocode}
-% and this |\baselinestretch| appears to emulate \texttt{script.pdf}
+% and this |\baselinestretch| appears to emulate \texttt{scriptsample.pdf}
 % closely and, more importantly, measures up as matching the effect
 % of the |\baselineskip| value---it matches what \textit{Movie Magic
 % Screenwriter} does, for instance\dots
@@ -547,7 +549,7 @@ pdfsubject=LaTeX2e\ class\ documentation\ and\ source\ (C)2006\ John\ Pate]
 % \changes{1.1.4}{2006 Oct 17}{minor code changes, revision to documentation, v1.509}
 % See specs, 
 % fudge factors (i.e.\ a ``gutter'') are needed to resemble
-% the ``correct'' layout---take a ruler to it and \texttt{script.pdf}.
+% the ``correct'' layout---take a ruler to it and \texttt{scriptsample.pdf}.
 %
 % 0.1" represents |1 em| in \texttt{courier} 12pt 10 pitch.
 %    \begin{macro}{left margin}
@@ -1069,13 +1071,13 @@ pdfsubject=LaTeX2e\ class\ documentation\ and\ source\ (C)2006\ John\ Pate]
 %    \begin{macro}{hardmarg.sty}
 %
 % \textbf{Hard Margins package} \\
-% Re-defines margins to exactly as stated in \texttt{script.pdf}.
+% Re-defines margins to exactly as stated in \texttt{scriptsample.pdf}.
 % Try it out and see if you like it.  Also shows you what
 % todo if you want to fiddle with some of the margin settings\ldots
 %
 % Issue info as to what we do\ldots
 %    \begin{macrocode}
-\ProvidesPackage{hardmarg}[2006/11/15 v1.538
+\ProvidesPackage{hardmarg}[2012/06/30 v1.6
 For use with class screenplay
 (C)2006 John Pate
 released under the GNU General Public License]
@@ -1231,19 +1233,19 @@ released under the GNU General Public License]
 %
 % The test file \texttt{test.tex} shows \texttt{screenplay}
 % markup applied to ``FOR A FEW DAYS MORE''
-% (\href{http://www.oscars.org/nicholl/script.pdf}%
-% {\texttt{http://www.oscars.org/nicholl/script.pdf}})
+% (\href{http://www.oscars.org/awards/nicholl/scriptsample.pdf}%
+% {\texttt{http://www.oscars.org/awards/nicholl/scriptsample.pdf}})
 % and the \texttt{test.pdf} file was generated from that.
 %
-% A printout of the first page \texttt{script.pdf} and
+% A printout of the first page \texttt{scriptsample.pdf} and
 % \texttt{test.pdf} show identical pitch and the inter-line
 % spacing is pretty close.  However, I chose a |\baselinestretch|
 % value to complement the |\baselineskip| and be more typographically
-% appropriate rather than exactly match \texttt{script.pdf}
+% appropriate rather than exactly match \texttt{scriptsample.pdf}
 % (i.e.\ we're emulating a typewriter).
 %
 % You can tell which is which because \texttt{test.pdf}
-% numbers the first page whilst \texttt{script.pdf} starts
+% numbers the first page whilst \texttt{scriptsample.pdf} starts
 % numbering on the second page of the screenplay.  
 %
 % If I get any \emph{useful} feedback I \emph{may} alter things
@@ -1294,12 +1296,12 @@ released under the GNU General Public License]
 %\iffalse
 %<*rider>
 %% Test document: facsimile of title and first page
-%% of http://www.oscars.org/nicholl/script.pdf
+%% of http://www.oscars.org/awards/nicholl/scriptsample.pdf
 %% to demonstrate veracity of class screenplay
 %% see http://www.dvc.org.uk/sacrific.txt/
 %% for more information on the document class.
 %%
-\documentclass{screenplay}[2006/11/15]
+\documentclass{screenplay}[2012/06/30]
 \title{For a Few Days More}
 \author{April Rider}
 \address{555 George St NNW\\
@@ -1358,7 +1360,7 @@ comes.
 %\fi
 %\iffalse
 %<*example>
-\documentclass{screenplay}[2006/11/15]
+\documentclass{screenplay}[2012/06/30]
 
 \title{Example .tex File}
 
@@ -1473,7 +1475,7 @@ Use the source, Luke.
 
 \extslug[illumination]{for definitive info on layout}
 
-http://www.oscars.org/nicholl/format.html
+http://www.oscars.org/awards/nicholl/resources.html
 
 %% and this always happens at the end ...
 \fadeout

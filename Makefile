@@ -44,6 +44,9 @@ screenplay.zip: screenplay.pdf test.pdf screenplay.dtx
 screenplay.cls:
 	latex screenplay.ins
 
+test.tex:
+	latex screenplay.ins
+
 screenplay.dvi: screenplay.cls
 	latex screenplay.dtx
 	makeindex -s gind.ist screenplay.dtx
@@ -57,7 +60,7 @@ screenplay.pdf: screenplay.dvi
 	pdfopt screen.pdf screenplay.pdf
 	rm screen.pdf screen.dvi
 
-test.pdf: screenplay.cls
+test.pdf: test.tex
 	latex test.tex
 	mv test.dvi temp.dvi
 	dvipdf -sPAPERSIZE=letter temp.dvi
@@ -81,6 +84,7 @@ clean: cleantex
 	-rm screenplay.ilg
 	-rm screenplay.ind
 	-rm screenplay.pdf
+	-rm screenplay.cls
 	-rm screenplay.tpt
 	-rm hardmarg.sty
 	-rm test.tex test.pdf example.tex
